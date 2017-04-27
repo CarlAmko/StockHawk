@@ -14,4 +14,4 @@ An Android app for monitoring stocks.
 To run and/or modify the code, you'll need [Android Studio](https://developer.android.com/studio/index.html). Simply download/clone the code, and open it in Android Studio.
 
 ## License
-Movifo is licensed under the [MIT license](https://en.wikipedia.org/wiki/MIT_License).
+StockHawk is licensed under the [MIT license](https://en.wikipedia.org/wiki/MIT_License).
