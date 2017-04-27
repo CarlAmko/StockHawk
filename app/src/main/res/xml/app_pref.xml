@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ListPreference
+        android:key="@string/pref_theme_key"
+        android:title="@string/pref_theme_title"
+        android:entryValues="@array/pref_theme_values"
+        android:entries="@array/pref_theme_titles"
+        android:defaultValue="@string/pref_theme_default"
+        />
+
+    <ListPreference
+        android:key="@string/pref_display_mode_key"
+        android:title="@string/pref_display_mode_title"
+        android:defaultValue="@string/pref_display_mode_default"
+        android:entries="@array/pref_display_mode_titles"
+        android:entryValues="@array/pref_display_mode_values"
+        />
+
+</PreferenceScreen>

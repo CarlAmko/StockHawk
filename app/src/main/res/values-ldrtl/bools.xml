@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Cool trick for determining if orientation is RTL at runtime. -->
+    <bool name="is_RTL">true</bool>
+</resources>

@@ -6,4 +6,25 @@
         <item>@string/default_stocks_microsoft</item>
         <item>@string/default_stocks_facebook</item>
     </string-array>
+
+    <string-array name="pref_theme_values">
+        <item>@string/pref_theme_dark_value</item>
+        <item>@string/pref_theme_light_value</item>
+    </string-array>
+
+    <string-array name="pref_theme_titles">
+        <item>@string/pref_theme_dark_title</item>
+        <item>@string/pref_theme_light_title</item>
+    </string-array>
+
+    <string-array name="pref_display_mode_values">
+        <item>@string/pref_display_mode_absolute_key</item>
+        <item>@string/pref_display_mode_percentage_key</item>
+    </string-array>
+
+    <string-array name="pref_display_mode_titles">
+        <item>@string/pref_display_mode_absolute_title</item>
+        <item>@string/pref_display_mode_percentage_title</item>
+    </string-array>
+
 </resources>

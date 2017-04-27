@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.udacity.stockhawk.ui.StockDetailsActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ProgressBar
+        android:id="@+id/pb_stock_details"
+        android:layout_marginTop="@dimen/stock_details_loading_bar"
+        android:layout_width="@dimen/stock_details_loading_bar"
+        android:layout_height="@dimen/stock_details_loading_bar"
+        android:layout_gravity="center"
+        android:visibility="visible"/>
+
+    <include
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        layout="@layout/stock_details_graph" />
+
+</LinearLayout>

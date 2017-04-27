@@ -1,35 +1,55 @@
 <resources>
     <string name="app_name">Stock Hawk</string>
 
-    <string name="pref_stocks_initialized_key" translatable="false">initialized</string>
-
-    <string name="pref_stocks_key">stocks</string>
-
-
-    <string name="pref_display_mode_key">displayMode</string>
-    <string name="pref_display_mode_default">@string/pref_display_mode_percentage_key</string>
-
-    <string name="pref_display_mode_absolute_key">absolute</string>
-    <string name="pref_display_mode_percentage_key">percentage</string>
-
-    <string name="default_stocks_yahoo">YHOO</string>
-    <string name="default_stocks_apple">AAPL</string>
-    <string name="default_stocks_microsoft">MSFT</string>
-    <string name="default_stocks_facebook">FB</string>
-
-
-    <string name="action_change_units">@string/pref_display_mode_key</string>
-
+    <string name="default_stocks_yahoo" translatable="false">YHOO</string>
+    <string name="default_stocks_apple" translatable="false">AAPL</string>
+    <string name="default_stocks_microsoft" translatable="false">MSFT</string>
+    <string name="default_stocks_facebook" translatable="false">FB</string>
 
     <string name="dialog_title">Add Stock</string>
     <string name="dialog_hint">Symbol (e.g. GOOG)</string>
     <string name="dialog_cancel">Cancel</string>
     <string name="dialog_add">Add</string>
 
+    <string name="dialog_valid_stock_format">%s</string>
+    <string name="dialog_invalid_stock_format">Stock %s not found!</string>
+
     <string name="error_no_network">No network connectivity! Will load stock cursor when the network is available.</string>
     <string name="error_no_stocks">No stocks added! Hit the floating action button to add one.</string>
 
-    <string name="toast_stock_added_no_connectivity">Symbol %s added. Will refresh when network available.</string>
-    <string name="toast_no_connectivity">Will refresh when network available.</string>
+    <string name="toast_stock_added_no_connectivity">Symbol %s added. Will refresh when network is available.</string>
+    <string name="toast_no_connectivity">Will refresh when network is available.</string>
 
+    <!-- Begin Preferences -->
+    <string name="pref_stocks_initialized_key" translatable="false">initialized</string>
+    <string name="pref_stocks_key" translatable="false">stocks</string>
+
+    <!-- Settings -->
+    <string name="title_activity_settings">Settings</string>
+    <string name="settings_desc">Settings</string>
+
+    <string name="pref_theme_title">Color Theme</string>
+    <string name="pref_theme_key" translatable="false">theme</string>
+    <string name="pref_theme_default" translatable="false">dark</string>
+
+    <string name="pref_theme_dark_title">Dark</string>
+    <string name="pref_theme_dark_value" translatable="false">dark</string>
+    <string name="pref_theme_light_title">Light</string>
+    <string name="pref_theme_light_value" translatable="false">light</string>
+
+    <string name="pref_display_mode_key" translatable="false">displayMode</string>
+    <string name="pref_display_mode_title">Stock Change Display Mode</string>
+    <string name="pref_display_mode_default" translatable="false">@string/pref_display_mode_percentage_key</string>
+
+    <string name="pref_display_mode_absolute_key" translatable="false">absolute</string>
+    <string name="pref_display_mode_absolute_title">Absolute</string>
+    <string name="pref_display_mode_percentage_key" translatable="false">percentage</string>
+    <string name="pref_display_mode_percentage_title">Percentage</string>
+
+    <!-- A11y -->
+    <string name="fab_content_desc">Tap to add a new stock.</string>
+
+    <!--Widget-->
+    <string name="no_stocks">No stocks added!</string>
+    <string name="change_content_desc">Indicator for positive or negative change in stock price.</string>
 </resources>

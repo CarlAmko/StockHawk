@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
@@ -8,11 +9,33 @@
         android:id="@+id/dialog_stock"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginRight="4dp"
+        android:layout_marginBottom="@dimen/stock_edit_text_margin"
+        android:layout_marginEnd="@dimen/stock_edit_text_margin"
+        android:layout_marginLeft="@dimen/stock_edit_text_margin"
+        android:layout_marginStart="@dimen/stock_edit_text_margin"
+        android:layout_marginRight="@dimen/stock_edit_text_margin"
         android:layout_marginTop="16dp"
         android:hint="@string/dialog_hint"
         android:inputType="textCapCharacters" />
+
+    <ProgressBar
+        android:id="@+id/pb_stock_lookup"
+        android:layout_width="@dimen/stock_loading_bar_dimen"
+        android:layout_height="@dimen/stock_loading_bar_dimen"
+        android:layout_gravity="center_horizontal"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/tv_stock_summary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginRight="@dimen/stock_summary_margin"
+        android:layout_marginEnd="@dimen/stock_summary_margin"
+        android:layout_marginStart="@dimen/stock_summary_margin"
+        android:layout_marginLeft="@dimen/stock_summary_margin"
+        android:textSize="@dimen/stock_summary_text_size"
+        android:visibility="gone"
+        tools:text="GOOG : Google" />
 
 </LinearLayout>

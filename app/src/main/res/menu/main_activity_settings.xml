@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/action_change_units"
-        android:icon="@drawable/ic_dollar"
+        android:id="@+id/action_settings"
+        android:icon="@drawable/ic_settings_24dp"
         android:orderInCategory="99"
-        android:title="@string/action_change_units"
-        app:showAsAction="always" />
+        android:title="@string/settings_desc"
+        app:showAsAction="always"/>
 
 </menu>

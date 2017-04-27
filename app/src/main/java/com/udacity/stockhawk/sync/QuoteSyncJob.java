@@ -6,11 +6,10 @@ import android.content.ComponentName;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 
 import com.udacity.stockhawk.data.Contract;
 import com.udacity.stockhawk.data.PrefUtils;
+import com.udacity.stockhawk.util.NetworkUtility;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,13 +30,29 @@ import yahoofinance.quotes.stock.StockQuote;
 public final class QuoteSyncJob {
 
     private static final int ONE_OFF_ID = 2;
-    private static final String ACTION_DATA_UPDATED = "com.udacity.stockhawk.ACTION_DATA_UPDATED";
+    public static final String ACTION_DATA_UPDATED = "com.udacity.stockhawk.ACTION_DATA_UPDATED";
+    private static final String SINGLE_QUOTE_FETCH_VALID = "com.udacity.stockhawk.SINGLE_QUOTE_FETCH_VALID";
+    private static final String SINGLE_QUOTE_FETCH_INVALID = "com.udacity.stockhawk.SINGLE_QUOTE_FETCH_INVALID";
     private static final int PERIOD = 300000;
     private static final int INITIAL_BACKOFF = 10000;
     private static final int PERIODIC_ID = 1;
     private static final int YEARS_OF_HISTORY = 2;
 
     private QuoteSyncJob() {
+    }
+
+    static void getSingleQuote(Context context, String symbol) {
+        try {
+            Intent dataUpdatedIntent;
+            if(YahooFinance.get(symbol) != null) {
+                dataUpdatedIntent = new Intent(SINGLE_QUOTE_FETCH_VALID);
+            } else {
+                dataUpdatedIntent = new Intent(SINGLE_QUOTE_FETCH_INVALID);
+            }
+            context.sendBroadcast(dataUpdatedIntent);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     static void getQuotes(Context context) {
@@ -121,7 +136,6 @@ public final class QuoteSyncJob {
     private static void schedulePeriodic(Context context) {
         Timber.d("Scheduling a periodic task");
 
-
         JobInfo.Builder builder = new JobInfo.Builder(PERIODIC_ID, new ComponentName(context, QuoteJobService.class));
 
 
@@ -145,28 +159,20 @@ public final class QuoteSyncJob {
 
     public static synchronized void syncImmediately(Context context) {
 
-        ConnectivityManager cm =
-                (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = cm.getActiveNetworkInfo();
-        if (networkInfo != null && networkInfo.isConnectedOrConnecting()) {
+        if (NetworkUtility.isOnline(context)) {
             Intent nowIntent = new Intent(context, QuoteIntentService.class);
+            nowIntent.setAction(QuoteIntentService.ACTION_REFRESH_ALL_QUOTES);
             context.startService(nowIntent);
         } else {
 
             JobInfo.Builder builder = new JobInfo.Builder(ONE_OFF_ID, new ComponentName(context, QuoteJobService.class));
 
-
             builder.setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY)
                     .setBackoffCriteria(INITIAL_BACKOFF, JobInfo.BACKOFF_POLICY_EXPONENTIAL);
 
-
             JobScheduler scheduler = (JobScheduler) context.getSystemService(Context.JOB_SCHEDULER_SERVICE);
-
             scheduler.schedule(builder.build());
-
-
         }
     }
-
 
 }

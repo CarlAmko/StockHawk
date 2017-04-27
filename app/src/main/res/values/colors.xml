@@ -1,11 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
 
+    <!-- Dark Theme -->
+    <color name="dt_colorPrimary">#388E3C</color>
+    <color name="dt_colorPrimaryDark">#1B5E20</color>
+    <color name="dt_colorAccent">#00B0FF</color>
+
+    <color name="dt_textColor">#fff</color>
+
+    <color name="dt_chart_label_color">#fff</color>
+    <color name="dt_icon_color">#fff</color>
+
+    <!-- Light Theme -->
+    <color name="lt_colorPrimary">#66BB6A</color>
+    <color name="lt_colorPrimaryDark">#388E3C</color>
+    <color name="lt_colorAccent">#FF5252</color>
+    <color name="lt_colorBackground">#EEE</color>
+
+    <color name="lt_textColor">#222</color>
+    <color name="lt_textColorDisabled">#666</color>
+
+    <color name="lt_chart_label_color">#222</color>
+    <color name="lt_icon_color">#222</color>
+
+    <!-- Mutual -->
     <color name="material_blue_500">#2196F3</color>
     <color name="material_red_700">#D50000</color>
     <color name="material_green_700">#00C853</color>
+
+    <!-- Widget -->
+    <color name="widget_text_color">#fff</color>
+    <color name="widget_background_color">#222</color>
 
 </resources>

@@ -3,8 +3,11 @@ package com.udacity.stockhawk.data;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.support.v7.app.AppCompatActivity;
+import android.util.TypedValue;
 
 import com.udacity.stockhawk.R;
+import com.udacity.stockhawk.util.ThemeUtility;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -12,8 +15,7 @@ import java.util.Set;
 
 public final class PrefUtils {
 
-    private PrefUtils() {
-    }
+    private PrefUtils() {}
 
     public static Set<String> getStocks(Context context) {
         String stocksKey = context.getString(R.string.pref_stocks_key);
@@ -68,24 +70,21 @@ public final class PrefUtils {
         return prefs.getString(key, defaultValue);
     }
 
-    public static void toggleDisplayMode(Context context) {
-        String key = context.getString(R.string.pref_display_mode_key);
-        String absoluteKey = context.getString(R.string.pref_display_mode_absolute_key);
-        String percentageKey = context.getString(R.string.pref_display_mode_percentage_key);
+    public static void setThemeDisplay(AppCompatActivity appCompatActivity) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(appCompatActivity);
+        final String themePreferenceKey = appCompatActivity.getString(R.string.pref_theme_key);
+        final String selectedTheme = sharedPreferences.getString(themePreferenceKey, appCompatActivity.getString(R.string.pref_theme_default));
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-
-        String displayMode = getDisplayMode(context);
-
-        SharedPreferences.Editor editor = prefs.edit();
-
-        if (displayMode.equals(absoluteKey)) {
-            editor.putString(key, percentageKey);
-        } else {
-            editor.putString(key, absoluteKey);
+        if (selectedTheme.equals(appCompatActivity.getString(R.string.pref_theme_dark_value))) {
+            appCompatActivity.setTheme(R.style.AppThemeDark);
+        }
+        else if(selectedTheme.equals(appCompatActivity.getString(R.string.pref_theme_light_value))){
+            appCompatActivity.setTheme(R.style.AppThemeLight);
         }
 
-        editor.apply();
+        // Manually set the root view's background color.
+        int themeWindowColor = ThemeUtility.getAttributeFromCurrentTheme(appCompatActivity, android.R.attr.windowBackground);
+        appCompatActivity.getWindow().getDecorView().getRootView().setBackgroundColor(themeWindowColor);
     }
 
 }

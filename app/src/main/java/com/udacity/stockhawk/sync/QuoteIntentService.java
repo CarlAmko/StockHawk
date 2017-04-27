@@ -12,9 +12,18 @@ public class QuoteIntentService extends IntentService {
         super(QuoteIntentService.class.getSimpleName());
     }
 
+    public static final String ACTION_REFRESH_ALL_QUOTES = "refresh-all-quotes";
+
     @Override
     protected void onHandleIntent(Intent intent) {
         Timber.d("Intent handled");
-        QuoteSyncJob.getQuotes(getApplicationContext());
+
+        switch (intent.getAction()) {
+            case ACTION_REFRESH_ALL_QUOTES:
+                QuoteSyncJob.getQuotes(getApplicationContext());
+                break;
+            default:
+                break;
+        }
     }
 }
