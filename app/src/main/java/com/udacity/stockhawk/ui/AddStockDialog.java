@@ -220,13 +220,19 @@ public class AddStockDialog extends DialogFragment implements LoaderManager.Load
     }
 
     private void enablePositiveButton() {
-        ((AlertDialog)getDialog()).getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(true);
+        final AlertDialog alertDialog = getAlertDialog();
+        alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(true);
         final int enabledColorId = ThemeUtility.getAttributeFromCurrentTheme(getActivity(), R.attr.colorAccent);
-        ((AlertDialog)getDialog()).getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(enabledColorId);
+        alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(enabledColorId);
     }
 
     private void disablePositiveButton() {
-        ((AlertDialog)getDialog()).getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
-        ((AlertDialog)getDialog()).getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(getResources().getColor(android.R.color.secondary_text_dark));
+        final AlertDialog alertDialog = getAlertDialog();
+        alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
+        alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(getResources().getColor(android.R.color.secondary_text_dark));
+    }
+
+    private AlertDialog getAlertDialog() {
+        return (AlertDialog)getDialog();
     }
 }

@@ -8,7 +8,7 @@ import android.net.NetworkInfo;
  * Created by Carl on 4/21/2017.
  */
 
-public class NetworkUtility {
+public final class NetworkUtility {
 
     public static boolean isOnline(Context context) {
         ConnectivityManager cm =

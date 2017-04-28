@@ -11,10 +11,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/stock_edit_text_margin"
         android:layout_marginEnd="@dimen/stock_edit_text_margin"
-        android:layout_marginLeft="@dimen/stock_edit_text_margin"
         android:layout_marginStart="@dimen/stock_edit_text_margin"
-        android:layout_marginRight="@dimen/stock_edit_text_margin"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/padding_medium"
         android:hint="@string/dialog_hint"
         android:inputType="textCapCharacters" />
 
@@ -30,10 +28,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginRight="@dimen/stock_summary_margin"
         android:layout_marginEnd="@dimen/stock_summary_margin"
         android:layout_marginStart="@dimen/stock_summary_margin"
-        android:layout_marginLeft="@dimen/stock_summary_margin"
         android:textSize="@dimen/stock_summary_text_size"
         android:visibility="gone"
         tools:text="GOOG : Google" />

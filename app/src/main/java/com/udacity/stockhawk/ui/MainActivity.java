@@ -113,16 +113,19 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     @Override
     public void onRefresh() {
 
+        // The data is empty if the number of elements are 0.
+        final int EMPTY_DATA_COUNT = 0;
+
         QuoteSyncJob.syncImmediately(this);
 
-        if (!networkUp() && adapter.getItemCount() == 0) {
+        if (!networkUp() && adapter.getItemCount() == EMPTY_DATA_COUNT) {
             swipeRefreshLayout.setRefreshing(false);
             error.setText(getString(R.string.error_no_network));
             error.setVisibility(View.VISIBLE);
         } else if (!networkUp()) {
             swipeRefreshLayout.setRefreshing(false);
             Toast.makeText(this, R.string.toast_no_connectivity, Toast.LENGTH_LONG).show();
-        } else if (PrefUtils.getStocks(this).size() == 0) {
+        } else if (PrefUtils.getStocks(this).size() == EMPTY_DATA_COUNT) {
             swipeRefreshLayout.setRefreshing(false);
             error.setText(getString(R.string.error_no_stocks));
             error.setVisibility(View.VISIBLE);
@@ -162,7 +165,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
         swipeRefreshLayout.setRefreshing(false);
 
-        if (data.getCount() != 0) {
+        // The data is empty if the number of elements are 0.
+        final int EMPTY_DATA_COUNT = 0;
+
+        if (data.getCount() != EMPTY_DATA_COUNT) {
             error.setVisibility(View.GONE);
         }
         adapter.setCursor(data);

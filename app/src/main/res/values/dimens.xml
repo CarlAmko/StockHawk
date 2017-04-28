@@ -1,17 +1,24 @@
 <resources>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="action_button_elevation">6dp</dimen>
+    <dimen name="action_button_elevation_pressed">12dp</dimen>
+
+    <dimen name="text_size_medium">22sp</dimen>
+
+    <dimen name="padding_small">8dp</dimen>
+    <dimen name="padding_sm_md">12dp</dimen>
+    <dimen name="padding_medium">16dp</dimen>
 
     <dimen name="stock_edit_text_margin">4dp</dimen>
     <dimen name="stock_loading_bar_dimen">60dp</dimen>
-    <dimen name="stock_summary_text_size">22sp</dimen>
+    <dimen name="stock_summary_text_size">@dimen/text_size_medium</dimen>
     <dimen name="stock_summary_margin">12dp</dimen>
 
     <dimen name="stock_details_loading_bar">75dp</dimen>
     <dimen name="stock_chart_text_size">30sp</dimen>
 
-    <dimen name="widget_margin">8dp</dimen>
-    <dimen name="widget_symbol_text_size">22sp</dimen>
-    <dimen name="widget_price_text_size">22sp</dimen>
-    <dimen name="empty_view_text_size">22sp</dimen>
+    <dimen name="widget_margin">@dimen/padding_small</dimen>
+    <dimen name="widget_symbol_text_size">@dimen/text_size_medium</dimen>
+    <dimen name="widget_price_text_size">@dimen/text_size_medium</dimen>
+    <dimen name="empty_view_text_size">@dimen/text_size_medium</dimen>
 </resources>

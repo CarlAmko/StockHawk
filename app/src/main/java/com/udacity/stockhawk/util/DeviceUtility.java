@@ -7,7 +7,7 @@ import com.udacity.stockhawk.R;
  * Created by Carl on 4/25/2017.
  */
 
-public class DeviceUtility {
+public final class DeviceUtility {
     /**
      * Checks if device is in RTL orientation.
      * @return True if displaying as RTL, false otherwise.

@@ -7,9 +7,7 @@
     android:layout_height="?android:attr/listPreferredItemHeight"
     android:gravity="center_vertical"
     android:orientation="horizontal"
-    android:paddingLeft="@dimen/widget_margin"
     android:paddingStart="@dimen/widget_margin"
-    android:paddingRight="@dimen/widget_margin"
     android:paddingEnd="@dimen/widget_margin"
     android:weightSum="5">
 
