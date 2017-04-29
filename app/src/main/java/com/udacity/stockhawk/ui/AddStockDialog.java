@@ -148,8 +148,10 @@ public class AddStockDialog extends DialogFragment implements LoaderManager.Load
 
     @Override
     public void onCancel(DialogInterface dialog) {
-        // Ensure we stop the loader if the dialog loses focus while a load is occurring.
-        getLoaderManager().destroyLoader(FETCH_SINGLE_QUOTE_LOADER);
+        if(isAdded()) {
+            // Ensure we stop the loader if the dialog loses focus while a load is occurring.
+            getLoaderManager().destroyLoader(FETCH_SINGLE_QUOTE_LOADER);
+        }
     }
 
     @Override
